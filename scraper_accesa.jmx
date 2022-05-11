@@ -326,9 +326,9 @@ vars.putObject(&quot;jobList&quot;,jobList);</stringProp>
               <stringProp name="JMESExtractor.matchNumber">-1</stringProp>
             </JMESPathExtractor>
             <hashTree/>
-            <JMESPathExtractor guiclass="JMESPathExtractorGui" testclass="JMESPathExtractor" testname="id" enabled="true">
-              <stringProp name="JMESExtractor.referenceName">id</stringProp>
-              <stringProp name="JMESExtractor.jmesPathExpr">content[*].id</stringProp>
+            <JMESPathExtractor guiclass="JMESPathExtractorGui" testclass="JMESPathExtractor" testname="refnumber" enabled="true">
+              <stringProp name="JMESExtractor.referenceName">refnumber</stringProp>
+              <stringProp name="JMESExtractor.jmesPathExpr">content[*].refNumber</stringProp>
               <stringProp name="JMESExtractor.matchNumber">-1</stringProp>
             </JMESPathExtractor>
             <hashTree/>
@@ -380,7 +380,7 @@ vars.putObject(&quot;jobList&quot;,jobList);</stringProp>
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname=" ===  PROCESS open positions Data    ====" enabled="true"/>
         <hashTree>
           <ForeachController guiclass="ForeachControlPanel" testclass="ForeachController" testname="ForEach Controller" enabled="true">
-            <stringProp name="ForeachController.inputVal">id</stringProp>
+            <stringProp name="ForeachController.inputVal">refnumber</stringProp>
             <stringProp name="ForeachController.returnVal">processed</stringProp>
             <boolProp name="ForeachController.useSeparator">true</boolProp>
             <stringProp name="ForeachController.startIndex">0</stringProp>
@@ -400,9 +400,14 @@ vars.putObject(&quot;jobList&quot;,jobList);</stringProp>
               <stringProp name="filename"></stringProp>
               <stringProp name="parameters"></stringProp>
               <stringProp name="script">var k = vars.get(&quot;k&quot;);
-var id = vars.get(&quot;id_&quot;+k);
-//Craft the link using an ID
-var link = &quot;https://careers.accesa.eu/job/&quot;+id;
+var refNumber = vars.get(&quot;refnumber_&quot;+k);
+var title = vars.get(&quot;title_&quot;+k);
+//Craft the link using an ID(no longer valid)
+//var link = &quot;https://careers.accesa.eu/job/&quot; + id;
+///job/${data.content[i].title.toLowerCase()
+
+var loc = title.toLowerCase().trim().replaceAll(/\\s+/, &quot;-&quot;).replaceAll(/&amp;/, &apos;&apos;).replaceAll(/[^\\w\\-]+/, &apos;&apos;).replaceAll(/\\-\\-+/, &apos;-&apos;) + &quot;_&quot;+refNumber;
+var link = &quot;https://careers.accesa.eu/job/&quot; + loc;
 vars.put(&quot;link_&quot;+k,link);
 
 //Change city to Remote for remote jobs
