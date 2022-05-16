@@ -513,8 +513,7 @@ if(city.contains(&quot;remote&quot;)){
                 <stringProp name="parameters"></stringProp>
                 <stringProp name="script">
 var jobList = vars.getObject(&quot;jobList&quot;);
-String this_job = prev.getResponseDataAsString();
-
+String this_job = prev.getResponseDataAsString().replace(&quot;?&quot;,&quot;-&quot;);
 
 vars.putObject(&quot;this_job&quot;,this_job);
 
