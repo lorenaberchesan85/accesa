@@ -221,6 +221,43 @@ vars.putObject(&quot;jobList&quot;,jobList);</stringProp>
               <stringProp name="RegexExtractor.match_number">1</stringProp>
             </RegexExtractor>
             <hashTree/>
+            <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+              <boolProp name="ResultCollector.error_logging">false</boolProp>
+              <objProp>
+                <name>saveConfig</name>
+                <value class="SampleSaveConfiguration">
+                  <time>true</time>
+                  <latency>true</latency>
+                  <timestamp>true</timestamp>
+                  <success>true</success>
+                  <label>true</label>
+                  <code>true</code>
+                  <message>true</message>
+                  <threadName>true</threadName>
+                  <dataType>true</dataType>
+                  <encoding>false</encoding>
+                  <assertions>true</assertions>
+                  <subresults>true</subresults>
+                  <responseData>false</responseData>
+                  <samplerData>false</samplerData>
+                  <xml>false</xml>
+                  <fieldNames>true</fieldNames>
+                  <responseHeaders>false</responseHeaders>
+                  <requestHeaders>false</requestHeaders>
+                  <responseDataOnError>false</responseDataOnError>
+                  <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                  <assertionsResultsToSave>0</assertionsResultsToSave>
+                  <bytes>true</bytes>
+                  <sentBytes>true</sentBytes>
+                  <url>true</url>
+                  <threadCounts>true</threadCounts>
+                  <idleTime>true</idleTime>
+                  <connectTime>true</connectTime>
+                </value>
+              </objProp>
+              <stringProp name="filename"></stringProp>
+            </ResultCollector>
+            <hashTree/>
           </hashTree>
         </hashTree>
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname=" ===   GET open positions from API    ====" enabled="true"/>
@@ -229,11 +266,11 @@ vars.putObject(&quot;jobList&quot;,jobList);</stringProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">api.smartrecruiters.com</stringProp>
+            <stringProp name="HTTPSampler.domain">careers.accesa.eu</stringProp>
             <stringProp name="HTTPSampler.port"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">/jobs?limit=100&amp;postingStatus=PUBLIC</stringProp>
+            <stringProp name="HTTPSampler.path">/smartrecruiters/jobs/?limit=100&amp;postingStatus=PUBLIC</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -243,30 +280,18 @@ vars.putObject(&quot;jobList&quot;,jobList);</stringProp>
             <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
             <stringProp name="HTTPSampler.connect_timeout"></stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            <stringProp name="TestPlan.comments">Created from cURL on 2022-04-06T11:32:36.577705</stringProp>
+            <stringProp name="TestPlan.comments">Created from cURL on 2022-06-22T12:54:11.0569091</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP HeaderManager" enabled="true">
               <collectionProp name="HeaderManager.headers">
                 <elementProp name="Accept" elementType="Header">
                   <stringProp name="Header.name">Accept</stringProp>
-                  <stringProp name="Header.value">text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9</stringProp>
+                  <stringProp name="Header.value">*/*</stringProp>
                 </elementProp>
                 <elementProp name="Accept-Language" elementType="Header">
                   <stringProp name="Header.name">Accept-Language</stringProp>
                   <stringProp name="Header.value">en-US,en;q=0.9</stringProp>
-                </elementProp>
-                <elementProp name="Cache-Control" elementType="Header">
-                  <stringProp name="Header.name">Cache-Control</stringProp>
-                  <stringProp name="Header.value">max-age=0</stringProp>
-                </elementProp>
-                <elementProp name="If-Modified-Since" elementType="Header">
-                  <stringProp name="Header.name">If-Modified-Since</stringProp>
-                  <stringProp name="Header.value">Wed, 06 Apr 2022 07:52:33 GMT</stringProp>
-                </elementProp>
-                <elementProp name="If-None-Match" elementType="Header">
-                  <stringProp name="Header.name">If-None-Match</stringProp>
-                  <stringProp name="Header.value">^\^8c2f3f20c868341c845c9ec033d4f5fb^\^</stringProp>
                 </elementProp>
                 <elementProp name="Referer" elementType="Header">
                   <stringProp name="Header.name">Referer</stringProp>
@@ -274,27 +299,19 @@ vars.putObject(&quot;jobList&quot;,jobList);</stringProp>
                 </elementProp>
                 <elementProp name="Sec-Fetch-Dest" elementType="Header">
                   <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
-                  <stringProp name="Header.value">document</stringProp>
+                  <stringProp name="Header.value">empty</stringProp>
                 </elementProp>
                 <elementProp name="Sec-Fetch-Mode" elementType="Header">
                   <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
-                  <stringProp name="Header.value">navigate</stringProp>
+                  <stringProp name="Header.value">cors</stringProp>
                 </elementProp>
                 <elementProp name="Sec-Fetch-Site" elementType="Header">
                   <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
                   <stringProp name="Header.value">same-origin</stringProp>
                 </elementProp>
-                <elementProp name="Sec-Fetch-User" elementType="Header">
-                  <stringProp name="Header.name">Sec-Fetch-User</stringProp>
-                  <stringProp name="Header.value">?1</stringProp>
-                </elementProp>
-                <elementProp name="Upgrade-Insecure-Requests" elementType="Header">
-                  <stringProp name="Header.name">Upgrade-Insecure-Requests</stringProp>
-                  <stringProp name="Header.value">1</stringProp>
-                </elementProp>
                 <elementProp name="User-Agent" elementType="Header">
                   <stringProp name="Header.name">User-Agent</stringProp>
-                  <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.75 Safari/537.36</stringProp>
+                  <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36</stringProp>
                 </elementProp>
                 <elementProp name="sec-ch-ua" elementType="Header">
                   <stringProp name="Header.name">sec-ch-ua</stringProp>
@@ -312,33 +329,29 @@ vars.putObject(&quot;jobList&quot;,jobList);</stringProp>
                   <stringProp name="Header.name">Accept-Encoding</stringProp>
                   <stringProp name="Header.value">gzip, deflate</stringProp>
                 </elementProp>
-                <elementProp name="" elementType="Header">
-                  <stringProp name="Header.name">x-smarttoken</stringProp>
-                  <stringProp name="Header.value">${apikey}</stringProp>
-                </elementProp>
               </collectionProp>
-              <stringProp name="TestPlan.comments">Created from cURL on 2022-04-06T11:32:36.577705</stringProp>
+              <stringProp name="TestPlan.comments">Created from cURL on 2022-06-22T12:54:11.0569091</stringProp>
             </HeaderManager>
             <hashTree/>
-            <JMESPathExtractor guiclass="JMESPathExtractorGui" testclass="JMESPathExtractor" testname="title" enabled="true">
-              <stringProp name="JMESExtractor.referenceName">title</stringProp>
-              <stringProp name="JMESExtractor.jmesPathExpr">content[*].title</stringProp>
-              <stringProp name="JMESExtractor.matchNumber">-1</stringProp>
-            </JMESPathExtractor>
-            <hashTree/>
-            <JMESPathExtractor guiclass="JMESPathExtractorGui" testclass="JMESPathExtractor" testname="refnumber" enabled="true">
-              <stringProp name="JMESExtractor.referenceName">refnumber</stringProp>
-              <stringProp name="JMESExtractor.jmesPathExpr">content[*].refNumber</stringProp>
-              <stringProp name="JMESExtractor.matchNumber">-1</stringProp>
-            </JMESPathExtractor>
-            <hashTree/>
-            <JMESPathExtractor guiclass="JMESPathExtractorGui" testclass="JMESPathExtractor" testname="city" enabled="true">
-              <stringProp name="JMESExtractor.referenceName">city</stringProp>
-              <stringProp name="JMESExtractor.jmesPathExpr">content[*].location.city</stringProp>
-              <stringProp name="JMESExtractor.matchNumber">-1</stringProp>
-            </JMESPathExtractor>
-            <hashTree/>
           </hashTree>
+          <JMESPathExtractor guiclass="JMESPathExtractorGui" testclass="JMESPathExtractor" testname="title" enabled="true">
+            <stringProp name="JMESExtractor.referenceName">title</stringProp>
+            <stringProp name="JMESExtractor.jmesPathExpr">content[*].title</stringProp>
+            <stringProp name="JMESExtractor.matchNumber">-1</stringProp>
+          </JMESPathExtractor>
+          <hashTree/>
+          <JMESPathExtractor guiclass="JMESPathExtractorGui" testclass="JMESPathExtractor" testname="refnumber" enabled="true">
+            <stringProp name="JMESExtractor.referenceName">refnumber</stringProp>
+            <stringProp name="JMESExtractor.jmesPathExpr">content[*].refNumber</stringProp>
+            <stringProp name="JMESExtractor.matchNumber">-1</stringProp>
+          </JMESPathExtractor>
+          <hashTree/>
+          <JMESPathExtractor guiclass="JMESPathExtractorGui" testclass="JMESPathExtractor" testname="city" enabled="true">
+            <stringProp name="JMESExtractor.referenceName">city</stringProp>
+            <stringProp name="JMESExtractor.jmesPathExpr">content[*].location.city</stringProp>
+            <stringProp name="JMESExtractor.matchNumber">-1</stringProp>
+          </JMESPathExtractor>
+          <hashTree/>
           <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
             <boolProp name="ResultCollector.error_logging">false</boolProp>
             <objProp>
